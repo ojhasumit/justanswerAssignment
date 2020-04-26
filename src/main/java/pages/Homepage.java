@@ -1,7 +1,6 @@
 package pages;
-import base.*;
-
-import com.google.gson.internal.$Gson$Preconditions;
+import base.BaseTest;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,15 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-import java.util.prefs.PreferenceChangeEvent;
 
 public class Homepage extends BaseTest{
 
@@ -56,7 +51,7 @@ public class Homepage extends BaseTest{
     @FindAll({@FindBy (xpath = "//a[@class='question-link']")})
     private List<WebElement> firstQuestion;
 
-
+    @Step("Chat Conversation {0}")
     public void chatConversation(String elementString,String text){
         By locator = By.xpath("//div[@class='text' and contains(text(),'"+elementString+"')]");
         if(waitForVisibility(locator,30)){
@@ -65,12 +60,14 @@ public class Homepage extends BaseTest{
         }
     }
 
+    @Step("Click on Continue for Payment {0}")
     public void clickContinue() {
         By contineButton = By.xpath("//a[@class='dqt-continue continue-link']");
         waitForVisibility(contineButton,30);
         continueButton.click();
     }
 
+    @Step("Click on Question {0}")
     public void clickFirstQuestion(){
         firstQuestion.get(1).click();
     }

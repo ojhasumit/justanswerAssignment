@@ -8,9 +8,9 @@ import pages.CreditCardpage;
 import pages.Homepage;
 import pages.Questionpage;
 
-public class TestJustAnswer extends BaseTest {
+public class TestScenario1 extends BaseTest {
 
-   public TestJustAnswer(){
+   public TestScenario1(){
         super();
     }
 

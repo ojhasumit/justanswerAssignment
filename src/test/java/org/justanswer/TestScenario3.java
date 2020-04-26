@@ -19,6 +19,7 @@ public class TestScenario3 extends BaseTest {
         chatpage = new Homepage(driver);
         creditCardpage = new CreditCardpage(driver);
         questionpage = new Questionpage(driver);
+        chatpage.clickFirstQuestion();
     }
 
 
@@ -41,7 +42,6 @@ public class TestScenario3 extends BaseTest {
 
     @Test
     public void questionScenario(){
-        chatpage.clickFirstQuestion();
         questionpage.clickOnAskYourQuestion();
         commonAction();
         Assert.assertEquals(creditCardpage.getCardError(),properties.getProperty("invalidCardError"));

@@ -73,43 +73,57 @@ public class CreditCardpage extends BaseTest {
 
      @Step("Enter card details {0}")
     public void enterCardDetails(String card_Number){
-//        By creditcardTextBox = By.xpath("//input[@id='input-card-number']");
-//        waitForVisibility(creditcardTextBox,30);
         cardNumber.sendKeys(card_Number);
     }
+    @Step("Enter card expiry {0}")
     public void enterExpiry(String expiry_Date){
         expiryDate.sendKeys(expiry_Date);
     }
+
+    @Step("Enter card cvv {0}")
     public void enterCVV(String cvv_detail){
         cvv.sendKeys(cvv_detail);
     }
+
+    @Step("Enter card zip {0}")
     public void enterZip(String postal){
         zip.sendKeys(postal);
     }
+
+    @Step("Clicked on Submit {0}")
     public void clickSubmit(){
         By submitButton = By.xpath("//button[@id='cta-form-submit']");
         waitForVisibility(submitButton,30);
         submit.click();
     }
+
+    @Step("Get Email Error {0}")
     public String getEmailError(){
        return emailError.getText();
     }
+    @Step("Get expiry Error {0}")
     public String getExpiryError(){
         return expiryError.getText();
     }
+    @Step("Get Expiry Format Error {0}")
     public String getExpiryFormatError(){
         return expiryFormatError.getText();
     }
+    @Step("Get CVV Error {0}")
     public String getCVVError(){
         return cvvError.getText();
     }
+    @Step("Get Card Error {0}")
     public String getCardError(){
         return cardError.getText();
     }
+    @Step("Get Zip Error {0}")
     public String getzipError(){
         return zipError.getText();
     }
-        public void selectExpiryDateandYear(String month, String year){
+
+    @Step("Select Expiry Date and Year {0}")
+    public void selectExpiryDateandYear(String month, String year){
             WebElement monthDropDown =  driver.findElement(By.xpath(String.format(dropDown, "Month")));
             WebElement yearDropDown =  driver.findElement(By.xpath(String.format(dropDown, "Year")));
             WebElement monthElement = driver.findElement(By.xpath(String.format(options,month)));

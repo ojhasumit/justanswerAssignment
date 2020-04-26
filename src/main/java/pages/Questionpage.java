@@ -1,11 +1,11 @@
 package pages;
 
 import base.BaseTest;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Questionpage extends BaseTest {
 
@@ -17,6 +17,7 @@ public class Questionpage extends BaseTest {
     @FindBy(xpath = "//div[@class='ja-button-orange ask-question']")
     private WebElement askYourQuestion;
 
+    @Step("Ask your Question {0}")
     public void clickOnAskYourQuestion(){
         By askYourQuestion = By.xpath("//div[@class='ja-button-orange ask-question']");
         waitForVisibility(askYourQuestion,30);
