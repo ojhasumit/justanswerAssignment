@@ -1,8 +1,7 @@
 package org.justanswer;
 
-import base.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.CreditCardpage;
 import pages.Homepage;
@@ -15,7 +14,7 @@ public class TestScenario1 extends BaseTest {
     }
 
 
-    @BeforeTest
+    @BeforeClass
     public void commonAction(){
         chatpage = new Homepage(driver);
         creditCardpage = new CreditCardpage(driver);
@@ -61,9 +60,5 @@ public class TestScenario1 extends BaseTest {
         creditCardpage.enterExpiry(properties.getProperty("invalidexpiry"));
         Assert.assertEquals(creditCardpage.getExpiryFormatError(),properties.getProperty("expiryFormatError"));
     }
-
-
-
-
 
 }

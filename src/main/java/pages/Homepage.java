@@ -1,5 +1,5 @@
 package pages;
-import base.BaseTest;
+import base.BaseClass;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,20 +14,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
-public class Homepage extends BaseTest{
+public class Homepage extends BaseClass {
 
     WebDriver driver;
-    Properties properties;
 
     public Homepage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        properties = new Properties();
-        try {
-            properties.load(new FileInputStream("C:\\Users\\ril\\IdeaProjects\\justanswer\\src\\test\\resources\\local.env.properties"));
-        }catch (IOException exception){
-            exception.printStackTrace();
-        }
     }
 
     @FindBy(xpath = "//textarea[@class='text-area']")
@@ -51,23 +44,23 @@ public class Homepage extends BaseTest{
     @FindAll({@FindBy (xpath = "//a[@class='question-link']")})
     private List<WebElement> firstQuestion;
 
-    @Step("Chat Conversation {0}")
-    public void chatConversation(String elementString,String text){
+    @Step("Chat Conversation {0} {1}")
+    public void chatConversation(String elementString, String text){
         By locator = By.xpath("//div[@class='text' and contains(text(),'"+elementString+"')]");
-        if(waitForVisibility(locator,30)){
+        if(waitForVisibility(driver, locator,30)){
             chatText.sendKeys(text);
             chatText.sendKeys(Keys.ENTER);
         }
     }
 
-    @Step("Click on Continue for Payment {0}")
+    @Step("Click on Continue for Payment")
     public void clickContinue() {
         By contineButton = By.xpath("//a[@class='dqt-continue continue-link']");
-        waitForVisibility(contineButton,30);
+        waitForVisibility(driver, contineButton,30);
         continueButton.click();
     }
 
-    @Step("Click on Question {0}")
+    @Step("Click on Question")
     public void clickFirstQuestion(){
         firstQuestion.get(1).click();
     }

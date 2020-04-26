@@ -1,8 +1,7 @@
 package org.justanswer;
 
-import base.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.CreditCardpage;
 import pages.Homepage;
@@ -14,7 +13,7 @@ public class TestScenario3 extends BaseTest {
         super();
     }
 
-    @BeforeTest
+    @BeforeClass
     public void createDriver(){
         chatpage = new Homepage(driver);
         creditCardpage = new CreditCardpage(driver);
