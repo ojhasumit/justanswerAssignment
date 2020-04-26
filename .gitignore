@@ -2,8 +2,6 @@
 allure-results/*
 .idea/misc.xml
 .idea/misc.xml
-.idea/vcs.xml
-target/*
 *.iml
 .idea/misc.xml
 .idea*

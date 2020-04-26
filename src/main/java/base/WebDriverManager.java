@@ -13,7 +13,7 @@ public class WebDriverManager {
      */
     public WebDriver webdriverSettings(String browser) {
         if (browser.equals("chrome")) {
-            System.setProperty("webdriver.driver.chrome.", "chromedriver");
+            System.setProperty("webdriver.driver.chrome.", "chromedriver.exe");
             return new ChromeDriver();
         }
         return null;
