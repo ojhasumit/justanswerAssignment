@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="0" name="Failed suite [Surefire suite]">
+  <test name="Surefire test">
+    <classes>
+      <class name="org.justanswer.TestJustAnswer"/>
+      <class name="org.justanswer.TestScenario3"/>
+    </classes>
+  </test> <!-- Surefire test -->
+  <test name="Surefire test(failed)">
+    <classes>
+      <class name="org.justanswer.TestScenario3">
+        <methods>
+          <include name="questionScenario"/>
+        </methods>
+      </class> <!-- org.justanswer.TestScenario3 -->
+      <class name="org.justanswer.TestJustAnswer">
+        <methods>
+          <include name="verifyExpiryError"/>
+          <include name="verifyExpiryFormatError"/>
+          <include name="verifyzipError"/>
+          <include name="setup"/>
+          <include name="verifyEmailError"/>
+          <include name="verifyCardError"/>
+          <include name="verifyCVVError"/>
+        </methods>
+      </class> <!-- org.justanswer.TestJustAnswer -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

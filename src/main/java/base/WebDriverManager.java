@@ -5,13 +5,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverManager {
 
-    WebDriver driver;
-
-    public void webdriverSettings(String browser){
-        driver = null;
-
-        if(browser.equals("chrome"))
-        System.setProperty("webdriver.driver.chrome.","chromedriver.exe");
-        driver = new ChromeDriver();
+    /**
+     * TO initiate object of browser
+     *
+     * @param browser
+     * @return
+     */
+    public WebDriver webdriverSettings(String browser) {
+        if (browser.equals("chrome")) {
+            System.setProperty("webdriver.driver.chrome.", "chromedriver.exe");
+            return new ChromeDriver();
+        }
+        return null;
     }
 }
